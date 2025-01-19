@@ -1,6 +1,6 @@
 # Varnish Cache performance issue
 
-This repository demonstrates a Varnish performance issue desctibed in https://github.com/varnishcache/varnish-cache/pull/4236
+This repository demonstrates a Varnish performance issue described in https://github.com/varnishcache/varnish-cache/pull/4236
 
 Start Varnish and Nginx as a backend
 ```bash
