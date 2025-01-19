@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="http://127.0.0.1:6081/product2"
+url="http://127.0.0.1:6081/product-detail-page2"
 
 # Number of requests
 count=1000
