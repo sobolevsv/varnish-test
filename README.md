@@ -26,7 +26,7 @@ On my laptop it takes 2 seconds.
 if the number of bans increases to 100k, then it takes 25 seconds
 
 
-to check current ban list in Varnish
+To check current ban list
 ```bash
 docker exec -it varnish-cache varnishadm ban.list
 ```
