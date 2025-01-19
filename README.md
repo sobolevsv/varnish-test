@@ -20,7 +20,7 @@ Send 10k bans
 Now Varnish is prepared, next request will result in 1000*10k=10M ban-object tests
 
 ```bash
-curl --location 'http://127.0.0.1:6081/product2' --header 'User-Agent: test1'
+time curl --location 'http://127.0.0.1:6081/product2' --header 'User-Agent: Test-Agent-1000'
 ```
 On my laptop it take 2 seconds.
 if the number of bans increases to 100k, then it takes 25 seconds
