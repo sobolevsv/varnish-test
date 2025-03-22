@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:1.27.3
+    container_name: nginx-backend
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+  varnish:
+    image: varnish:7.7
+    container_name: varnish-cache
+    depends_on:
+      - nginx
+    volumes:
+      - ./default.vcl:/etc/varnish/default.vcl:ro
+    ports:
+      - "6081:6081" # HTTP port
+      - "6082:6082" # Admin port
+    command: >
+      varnishd -F -a :6081 -T 0.0.0.0:6082 -p ban_lurker_sleep=0 -p ban_any_variant=0 -f /etc/varnish/default.vcl

@@ -30,3 +30,26 @@ To check current ban list
 ```bash
 docker exec -it varnish-cache varnishadm ban.list
 ```
+
+## How is this solved in Varnish 7.7
+This issue can be resolved by setting **ban_any_variant=0** in Varnish 7.7
+Repeat the same steps as above, but with docker-compose-7.7.yml
+This file runs Varnish 7.7 with ban_any_variant=0
+
+```bash
+docker-compose down
+
+docker-compose -f docker-compose-7.7.yml up -d
+
+./send_requests.sh
+
+./send_bans.sh
+
+time curl --location 'http://127.0.0.1:6081/product-detail-page2' 
+--header 'User-Agent: Test-Agent-1000'
+```
+Now, even with 100 thousand bans, the response time is a fraction of a second
+
+
+It is planned to set **ban_any_variant** to 0 in version 8.0.
+https://github.com/varnishcache/varnish-cache/issues/3352
