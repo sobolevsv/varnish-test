@@ -52,8 +52,7 @@ docker-compose -f docker-compose-7.7.yml up -d
 ```
 
 ```bash
-time curl --location 'http://127.0.0.1:6081/product-detail-page2' 
---header 'User-Agent: Test-Agent-1000'
+time curl --location 'http://127.0.0.1:6081/product-detail-page2' --header 'User-Agent: Test-Agent-1000'
 ```
 
 Now, even with 100 thousand bans, the response time is a fraction of a second
