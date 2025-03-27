@@ -55,7 +55,9 @@ docker-compose -f docker-compose-7.7.yml up -d
 time curl --location 'http://127.0.0.1:6081/product-detail-page2' --header 'User-Agent: Test-Agent-1000'
 ```
 
-Now, even with 100 thousand bans, the response time is a fraction of a second
+Now, even with 100 thousand bans, the response time is a fraction of a second.
+The reason why it now processes the request much faster is that only one variant is checked against bans.
+So, the number of tests is now limited to `(number of variants) + (number of bans)` , as opposed to `(number of variants) * (number of bans)` in the example with version 7.6.
 
 
 It is planned to set **ban_any_variant** to 0 in version 8.0.
