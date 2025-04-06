@@ -62,3 +62,6 @@ So, the number of tests is now limited to `(number of variants) + (number of ban
 
 It is planned to set **ban_any_variant** to 0 in version 8.0.
 https://github.com/varnishcache/varnish-cache/issues/3352
+
+More details on how bans work can be found in my article:
+https://medium.com/@sergeisobolev/how-to-speed-up-varnish-cache-and-prevent-hangs-8ed57d121afb
